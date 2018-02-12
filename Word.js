@@ -1,6 +1,6 @@
 var Letter = require("./letter.js");
 
-function Word(word) {
+function Word (word) {
     this.word = word;
     this.letters = [];
     this.wordChosen = false;
@@ -42,4 +42,4 @@ function Word(word) {
     };
 }
 
-module.exports = word;
+module.exports = Word;
