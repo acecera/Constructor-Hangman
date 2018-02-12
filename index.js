@@ -89,4 +89,4 @@ function hangman(randomWord, guessedLetter, guessesLeft, display, currentWord, s
     }
 }
 
-this.startGame();
+this.startGame;
