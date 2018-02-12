@@ -22,8 +22,8 @@ function hangman(randomWord, guessedLetter, guessesLeft, display, currentWord, s
             name: 'play',
             type: 'confirm',
             message: 'Ready to play?'
-        }]).then(function(response) {
-            if (response.play) {
+        }]).then(function(answers) {
+            if (answers.play) {
                 this.newGame();
             } else {
                 console.log("Maybe next time!");
@@ -54,10 +54,39 @@ function hangman(randomWord, guessedLetter, guessesLeft, display, currentWord, s
                    var guessedAlready = false;
                    for (var i = 0; i < this.guessedLetters.length; i++) {
                        if(guessedLetters === this.guessedLetter[i])
-                       return;
+                       return guessedAlready = true;
+                   } if (guessedLetters === false) {
+                       console.log("Wrong Letter!");
+                       this.guessedLetters.push();
+                       this.guessesLeft--;
+                       this.display++;
+                       console.log("Guesses Left: " + guessesLeft);
+                       console.log(this.display);
+                       console.log(this.currentWord.showWord());
+                       console.log("Letters Guessed: " + this.guessedLetters);
+                   } else {
+                       console.log("You guessed correct!");
+                   } if (this.currentWord.wordGuessed() === true) {
+                       console.log(this.currentWord.showWord());
+                       console.log("You win!");
+                   } else {
+                       console.log("Guesses Left: " + guessesLeft);
+                       console.log(this.currentWord.showWord());
+                       console.log("Letters Guessed: " + this.guessedLetters);
+                   }  
+                   if (this.guessesLeft > 0 && this.currentWord.wordGuessed === false) {
+                       this.promptUser();
+                   } else if (this.guessesLeft === 0) {
+                       console.log("Game Over!");
+                       console.log("The word you were guessing was: " + this.currentWord.randomWord);
+                   } else {
+                       console.log("You've guessed that letter already.");
+                       this.promptUser();
                    }
-                })
+                });
             }
         }
     }
 }
+
+this.startGame();
