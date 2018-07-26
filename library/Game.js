@@ -11,11 +11,11 @@ function Game() {
     };
 
     this.nextWord = function() {
-        var randWord = words[Math.floor(Math.random() * words.length)];
+        var randWord = Words[Math.floor(Math.random() * Words.length)];
         this.currentWord = new Word(randWord);
         console.log("\n" + this.currentWord + "\n");
         this.makeGuess();
-    }
+    };
 
     this.makeGuess = function() {
         this.askForLetter().then(function() {
@@ -70,9 +70,12 @@ function Game() {
                 console.log(chalk.green("\nCorrect!\n"));
             } else {
                 self.guessesLeft--;
-                console.log(chalk.red("\nWrong letter!\n"));
+                console.log(chalk.red("\nWrong!\n"));
                 console.log(self.guessesLeft + " guesses remaining.\n");
             }
+        })
+        .catch(function(err) {
+            return err;
         });
     };
 
