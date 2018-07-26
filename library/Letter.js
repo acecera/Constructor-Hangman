@@ -10,7 +10,11 @@ Letter.prototype.toString = function() {
     return "_";
 };
 
-Letter.prototype.toString = function(userInput) {
+Letter.prototype.getSolution = function() {
+    return this.char;
+};
+
+Letter.prototype.guess = function(userInput) {
     if(userInput.toUpperCase() === this.char.toUpperCase()) {
         this.visible = true;
         return true;
