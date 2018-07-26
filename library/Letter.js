@@ -1,17 +1,21 @@
-module.exports = Letter;
-
-function letter(value) {
-    this.value = value;
-    this.show = false;
-    if (this.value == ' ')
-        this.show = true;
+function Letter(char) {
+    this.visible = !/[a-z1-9]/i.test(char);
+    this.char = char;
 }
 
-letter.prototype.printInfo = function() {
-    if(this.show) {
-        return this.value;
+Letter.prototype.toString = function() {
+    if (this.visible === true) {
+        return this.char;
     }
     return "_";
 };
 
+Letter.prototype.toString = function(userInput) {
+    if(userInput.toUpperCase() === this.char.toUpperCase()) {
+        this.visible = true;
+        return true;
+    }
+    return false;
+};
 
+module.exports = Letter;
