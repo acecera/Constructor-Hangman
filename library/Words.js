@@ -18,4 +18,4 @@ module.exports = [
     "Mexico",
     "Uruguay",
     "Russia"
-]
+];
