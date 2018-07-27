@@ -1,7 +1,7 @@
 var Letter = require("./Letter");
 
 function Word(word) {
-    this.letters = word.split("").map(function(char) {
+    this.letters = word.split(" ").map(function(char) {
         return new Letter(char);
     });
 }
@@ -9,18 +9,18 @@ function Word(word) {
 Word.prototype.getSolution = function () {
     return this.letters.map(function(letter) {
         return letter.getSolution();
-    }).join("");
+    }).join(" ");
 };
 
 Word.prototype.toString = function() {
     return this.letters.join(" ");
 };
 
-Word.prototype.userInput = function(char) {
+Word.prototype.guessLetter = function(char) {
     var correctLetter = false;
     this.letters.forEach(function(letter) {
         if (letter.guess(char)) {
-            return correctLetter;
+            correctLetter = true;
         }
     });
 
