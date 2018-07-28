@@ -6,7 +6,7 @@ To begin clone repository into your terminal window.
 Type npm install and then node index.js.
 Enjoy!
 
-![Image of Screenshot] (https://github.com/acecera/Hangman-Game/images/ScreenShot1.png)
+![Image of Screenshot] (https://github.com/acecera/Constructor-Hangman/images/ScreenShot1.png)
 
-![Image of Screenshot] (https://github.com/acecera/Hangman-Game/images/ScreenShot2.png)
+![Image of Screenshot] (https://github.com/acecera/Constructor-Hangman/images/ScreenShot2.png)
 
